@@ -13,19 +13,19 @@ app f x = f x
 -- Natural numbers.
 
 data ℕ : Set where
-  z : ℕ
-  s : ℕ → ℕ
+  zero : ℕ
+  suc  : ℕ → ℕ
 
 infixl 20 _+_
 
 _+_ : ℕ → ℕ → ℕ
-z     + m = m
-(s n) + m = s (n + m)
+zero    + m = m
+(suc n) + m = suc (n + m)
 
 infixl 40 _*_
 _*_ : ℕ → ℕ → ℕ
-z   * n = z
-s m * n = n + (m * n)
+zero   * n = zero
+suc m  * n = n + (m * n)
 
 -- Equality
 
@@ -45,10 +45,10 @@ trans a b c a≡b b≡c = {!!}
 
 -- Basic Properties.
 
-+0 : ∀ {m} → m + z ≡ m
++0 : ∀ {m} → m + zero ≡ m
 +0 = {!!}
 
-+s : ∀ {m n} → m + s n ≡ s (m + n)
++s : ∀ {m n} → m + suc n ≡ suc (m + n)
 +s = {!!}
 
 +assoc : ∀ m n k → (m + n) + k ≡ m + (n + k)
