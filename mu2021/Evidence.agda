@@ -28,8 +28,7 @@ data Vector : (A : Set) → ℕ → Set where
   _∷_ : ∀ {A n} → A → Vector A n → Vector A (1 + n)
 
 lookupc : ∀ {A n} → Vector A n → (m : ℕ) → holds (m <c n) → A
-lookupc (x ∷ xs) zero m<cn = {!!}
-lookupc (x ∷ xs) (suc m) m<cn = {!!}
+lookupc xs m m<cn = {!!}
 
 lookupr : ∀ {A n} → Vector A n → (m : ℕ) → m <r n → A
 lookupr xs m m<cn = {!!}

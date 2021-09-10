@@ -35,31 +35,27 @@ data _≡_ {A : Set} (x : A) : A → Set where
   refl : x ≡ x
 
 cong : {A B : Set} → ∀ (f : A → B) {x y} → x ≡ y → f x ≡ f y
-cong f refl = refl
+cong f x≡y = {!!}
 
 sym : {A : Set} → {a b : A} → a ≡ b → b ≡ a
-sym refl = refl
+sym a≡b = {!!}
 
 trans : {A : Set} → (a b c : A) → a ≡ b → b ≡ c → a ≡ c
-trans a .a c refl b≡c = b≡c
+trans a b c a≡b b≡c = {!!}
 
 -- Basic Properties.
 
 +0 : ∀ {m} → m + zero ≡ m
-+0 {zero}  = refl
-+0 {suc m} = cong suc +0
++0 = {!!}
 
 +s : ∀ {m n} → m + suc n ≡ suc (m + n)
-+s {zero}  {n} = refl
-+s {suc m} {n} = cong suc +s
++s = {!!}
 
 +assoc : ∀ m n k → (m + n) + k ≡ m + (n + k)
-+assoc zero    n k = refl
-+assoc (suc m) n k = cong suc (+assoc m n k)
++assoc m n k = {!!}
 
 +comm : ∀ m n → m + n ≡ n + m
-+comm zero    n = sym +0
-+comm (suc m) n = trans (suc (m + n)) (suc (n + m)) (n + suc m) (cong suc (+comm m n)) (sym +s)
++comm m n = {!!}
 
 -- Using `rewrite` (making quite a bit easier {^_^}).
 
